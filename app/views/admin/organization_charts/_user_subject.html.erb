@@ -1,13 +1,13 @@
 <div class="trainee-structure">
-  <%= link_to [:admin, user_subject.trainee], title: user_subject.user_name do %>
+  <%= link_to [:admin, profile.user], title: profile.user.name do %>
     <div class="profile-structure">
       <div class="avatar">
-        <%= avatar_user_tag user_subject.trainee, "img-circle",
+        <%= avatar_user_tag profile.user, "img-circle",
           Settings.image_size_40 %></div>
-      <div style="color: <%= user_subject.trainee.profile.trainee_type.color if
-        user_subject.trainee.profile.trainee_type %>">
+      <div style="color: <%= profile.trainee_type.color if
+        profile.trainee_type %>">
         <strong><%= t "organization_charts.trainee" %></strong><br>
-        <%= user_subject.user_name %>
+        <%= profile.user.name %>
       </div>
     </div>
   <% end %>

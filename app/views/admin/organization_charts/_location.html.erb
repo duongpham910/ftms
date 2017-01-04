@@ -4,21 +4,24 @@
   </div>
 
   <div class="manager-structure">
-    <%= link_to [:admin, location.manager], title: location.manager_name do %>
+    <%= link_to [:admin, location.manager], title: location.manager.name do %>
       <div class="profile-structure">
         <div class="avatar">
           <%= avatar_user_tag location.manager, "img-circle",
             Settings.image_size_40 %></div>
         <div>
           <strong><%= t "organization_charts.manager" %></strong><br>
-          <%= location.manager_name %>
+          <%= location.manager.name %>
         </div>
       </div>
     <% end %>
   </div>
-
   <div class="structure-content">
-    <%= render partial: "trainer",
-      collection: User.trainers.by_location(location.id), as: :trainer %>
+    <%= render "away", trainees: @support.away_trainees(location) %>
+  </div>
+  <div class="structure-content">
+    <% @support.organization(location).each do |trainer, subjects| %>
+      <%= render "trainer", trainer: trainer, subjects: subjects %>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="subject-structure">
+  <div class="subject away">
+    <div class="away-trainee">
+      <%= image_tag "user.png", size: Settings.image_size_40 %>
+      <span class="title-name"><%= t "organization_charts.away_trainee" %>
+      </span>
+    </div>
+    <div class="trainee-structure nil-structure">
+    </div>
+    <div>
+      <% trainees.each do |trainee| %>
+        <%= render "trainee", trainee: trainee %>
+      <% end %>
+    </div>
+  </div>
+</div>

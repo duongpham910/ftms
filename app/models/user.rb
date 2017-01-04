@@ -96,11 +96,6 @@ class User < ApplicationRecord
   scope :created_between, ->start_date, end_date{where("DATE(created_at) >=
     ? AND DATE(created_at) <= ?", start_date, end_date)}
   scope :by_trainer, ->trainer_id{where trainer_id: trainer_id}
-  scope :free_trainees, -> do
-    where.not(id: joins(:user_subjects)
-      .where("user_subjects.status = ?", UserSubject.statuses[:progress])
-      .pluck(:id))
-  end
   scope :free_group, ->{where.not id: GroupUser.select(:user_id)}
   scope :free_and_in_group, ->group_id{where.not id: GroupUser
     .where.not(group_id: group_id).select(:user_id)}

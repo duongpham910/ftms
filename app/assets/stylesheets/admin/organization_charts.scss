@@ -71,12 +71,34 @@
         border-bottom: 1px solid #F6F8F8;
       }
 
+      .away-trainee {
+        border-bottom: 1px solid #F6F8F8;
+        border-right: 1px solid #F6F8F8;
+        text-align: center;
+        min-width: 200px;
+        padding: 5px 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background: #9C27B0 !important;
+        margin-right: -1px;
+      }
+
+      .nil-structure {
+        height: 57px;
+        background: #dd4b39 !important;
+      }
+
       .subject-name {
         background: #dd4b39;
       }
 
       .trainee-structure {
         background: #00c0ef;
+      }
+
+      .away {
+        margin-right: -2px;
       }
     }
 

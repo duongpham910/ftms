@@ -29,11 +29,6 @@ class CourseSubject < ApplicationRecord
     reject_if: proc {|attributes| attributes["name"].blank?}
 
   scope :order_position, ->{rank :row_order}
-  scope :load_course_subjects_for_trainer, ->trainer_id do
-    joins(course: :user_courses).where("user_courses.user_id = ?
-      AND courses.status = ?", trainer_id, Course.statuses[:progress])
-      .group_by &:subject_id
-  end
 
   delegate :name, to: :course, prefix: true, allow_nil: true
   delegate :during_time, to: :subject, prefix: true, allow_nil: true
