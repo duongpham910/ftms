@@ -29,12 +29,14 @@
               </tr>
               <tr>
                 <td><%= t "user.profile.university" %></td>
-                <td><%= @user.profile.university.abbreviation %>
+                <td><%= @user.profile.university.abbreviation if @user.profile
+                  .university.present? %>
                   </td>
               </tr>
               <tr>
                 <td><%= t "user.profile.graduation" %></td>
-                <td><%= @user.profile.graduation %></td>
+                <td><%= @user.profile.graduation if @user.profile
+                  .graduation.present? %>
               </tr>
             </table>
           </div>
@@ -48,11 +50,13 @@
               </tr>
               <tr>
                 <td><%= t "user.profile.start_trainning_date" %></td>
-                <td><%= @user.profile.start_training_date %></td>
+                <td><%= @user.profile.start_training_date if @user.profile
+                  .start_training_date.present? %></td>
               </tr>
               <tr>
                 <td><%= t "user.profile.start_trainning_date" %></td>
-                <td><%= @user.profile.finish_training_date %></td>
+                <td><%= @user.profile.finish_training_date if @user.profile
+                  .finish_training_date.present? %></td>
               </tr>
             </table>
           </div>

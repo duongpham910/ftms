@@ -1,0 +1,33 @@
+<div id="main" class="clearfix">
+  <div id="content">
+    <div id="<%= controller_name %>">
+      <%= image_tag "loading.gif", id: "loading" %>
+      <h3 class="title">
+        <button id="btn-filter-on-off" title="<%= filter_title %>"
+          class="btn-filter-onoff-project btn btn-default">
+          &nbsp;
+        </button>
+        <span id="filter-loading" class="filter-loading-offset-top"></span>
+      </h3>
+
+      <div class="table">
+        <%= render "shared/datatables/exam_header" %>
+        <%= @exam_presenters.html_safe %>
+      </div>
+
+      <div class="pull-right" id="number-records">
+        <%= i18n_pluralize @exams.size, Settings.record %>
+      </div>
+
+      <div id="filter" data-filter-data="<%= @filter_data_user %>"
+        data-type="<%= :exams %>" data-id="<%= current_user.id %>"
+        data-is-turn-on="<%= @filter_service.is_on? %>">
+      </div>
+
+      <div class="list-filters">
+        <div class="filter-form">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

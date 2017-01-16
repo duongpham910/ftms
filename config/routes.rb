@@ -114,6 +114,7 @@ Rails.application.routes.draw do
     resources :trainee_evaluations, only: :index
     resources :evaluation_standards
     resources :calendars, only: :index
+    resources :exams, only: [:index, :show]
   end
 
   namespace :assign_user do

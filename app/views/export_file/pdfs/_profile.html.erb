@@ -17,7 +17,7 @@
       <%= t "user.profile.university" %>
     </strong>
     <p class="text-muted">
-      <%= @user.profile.university.name %>
+      <%= @user.profile.university.name if @user.profile.university.present? %>
     </p>
     <hr>
     <strong class="icon-profile">
@@ -25,14 +25,15 @@
       <%= t "user.profile.email" %>
     </strong>
     <p class="text-muted">
-      <%= @user.email %>
+      <%= @user.email if @user.email.present? %>
     </p>
     <hr>
     <strong class="icon-profile">
       <i class="fa fa-map-marker margin-r-5"></i>
       <%=  t "user.profile.location" %>
     </strong>
-    <p class="text-muted"><%= @user.profile.location.name %></p>
+    <p class="text-muted"><%= @user.profile.location.name if @user.profile
+      .location.present? %></p>
     <hr>
     <strong class="icon-profile">
       <i class="fa fa-file-text-o margin-r-5"></i>
